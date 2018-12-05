@@ -1,6 +1,7 @@
-package parser
+package interpreter
 
 import (
+    . "../parser"
     "github.com/antlr/antlr4/runtime/Go/antlr"
     "math"
     "strconv"
