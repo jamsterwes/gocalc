@@ -79,12 +79,10 @@ func (ci *CalculatorInterpreter) VisitSign_atom(ctx *Sign_atomContext) float64 {
 }
 
 func (ci *CalculatorInterpreter) VisitAtom(ctx *AtomContext) float64 {
-    switch t := ctx.Expr().(type) {
-    case *ExprContext:
-        expr, _ := ctx.Expr().(*ExprContext)
+    expr, is_expr := ctx.Expr().(*ExprContext)
+    if is_expr {
         return ci.VisitExpr(expr)
-    default:
-        _ = t
+    } else {
         constant, _ := ctx.Constant().(*ConstantContext)
         return ci.VisitConstant(constant)
     }
