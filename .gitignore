@@ -1,2 +1,4 @@
 antlr4/
 antlr4.bat
+*.tokens
+*.interp
